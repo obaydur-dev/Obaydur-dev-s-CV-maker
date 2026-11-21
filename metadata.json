@@ -1,0 +1,6 @@
+{
+  "name": "Master CV & Bio-Data Studio",
+  "description": "Precision Master CV, Official Bio-Data, and Supporting Evidence Builder with Live A4 Print Preview, Zero-Empty-Field Filtering, and Multi-Sector Adaptation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

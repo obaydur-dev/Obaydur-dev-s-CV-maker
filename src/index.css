@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    --font-serif: 'Source Serif 4', Georgia, serif;
+    --font-bangla: 'Noto Sans Bengali', 'Plus Jakarta Sans', sans-serif;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f4f6f9;
+    color: #0f172a;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.font-cv-sans {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-cv-serif {
+  font-family: 'Source Serif 4', 'Noto Sans Bengali', Georgia, serif;
+}
+
+/* Crisp custom scrollbars for studio panels */
+.studio-scroll::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.studio-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.studio-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.studio-scroll::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* =========================================================
+   A4 SHEET PRECISION TYPOGRAPHY & TABLE ALIGNMENT RULES
+   Pure hex/rgb colors inside .a4-sheet for 100% PDF safety
+   ========================================================= */
+.a4-sheet {
+  width: 210mm;
+  min-height: 297mm;
+  height: 297mm;
+  background-color: #ffffff;
+  color: #1e293b;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.16), 0 2px 6px rgba(15, 23, 42, 0.06);
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.a4-sheet img,
+.high-quality-img {
+  image-rendering: high-quality;
+}
+
+/* Force crisp vertical centering in all CV tables */
+.cv-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.cv-table th,
+.cv-table td {
+  vertical-align: middle !important;
+  line-height: 1.38;
+  padding: 5.5px 8px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.cv-table tr,
+.kv-row,
+.cv-section-block {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.cv-section-heading {
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+.proj-card,
+.cv-keep-together {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.a4-sheet-footer {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* Signature cursive fallback styling */
+.cv-typed-signature {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* =========================================================
+   PRINT ENGINE (@media print)
+   Hides studio UI chrome and prints exact A4 sheets 1:1
+   ========================================================= */
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body,
+  #root {
+    width: 210mm !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    overflow: visible !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only-container {
+    display: block !important;
+    position: static !important;
+    width: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+
+  .print-scale-reset {
+    transform: none !important;
+    width: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  .a4-sheet {
+    width: 210mm !important;
+    height: 297mm !important;
+    min-height: 297mm !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .a4-sheet:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+}
